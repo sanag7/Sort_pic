@@ -5,15 +5,14 @@ from tqdm import tqdm
 import datetime
 
 
-PIC_PATH = "G:\\Pic_all"  #E:\Pic_all
+PIC_PATH = "G:\\Pic_all"  #E:\Pic_all  window
 # SAVE_PATH = "G:\\Pic_Sort"
-SAVE_PATH = "G:\\Pic_HEIC" #HEIC mode
+SAVE_PATH = "G:\\Pic_HEIC" #HEIC mode   window
 
-# PIC_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/pic_raw"
-# SAVE_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/save_pic"
+# PIC_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/pic_raw"  #Mac
+# SAVE_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/save_pic" #Mac
 
-# pic_ext_list = [".jpg", ".jpeg", ".jpe",".gif" ".png" ]
-# pic_ext_list = [".zip" ] # debug
+
 pic_ext_list = [".heic"]
 
 DVICE_LIST = ['Apple', 'SAMSUNG', 'samsung', 'KTH' , 'Snowcorp', 'Canon', 'SONY', 'NIKON CORPORATION', 'Panasonicclear']
@@ -39,89 +38,4 @@ for (root, dirs, files) in os.walk(PIC_PATH):
 for dir, basename, ext in tqdm(pic_file_path_list):
     file_name = basename + ext
     pic_file_path = os.path.join(dir,basename + ext)
-    # img = Image.open(pic_file_path)
-    # meta_data = img.getexif()
-    # print(meta_data)   
     shutil.move(pic_file_path,os.path.join(SAVE_PATH, file_name))
-
-
-
-# for dir, basename, ext in tqdm(pic_file_path_list):
-#     file_name = basename + ext
-#     pic_file_path = os.path.join(dir,basename + ext)
-#     img = Image.open(pic_file_path)
-#     meta_data = img.getexif()
-#     # print(meta_data)
-    
-
-
-#     try:  # 사진은 월별로 저장
-#         if meta_data[271] in DVICE_LIST:
-#             make_time = meta_data[306]
-        
-#         else:
-#             make_time = meta_data[36867]
-#         year = make_time[0:4]
-#         month = make_time[5:7]
-#         day = make_time[8:10]
-
-#         new_name = make_time.replace(":","_")
-        
-#         year_dir = os.path.join(SAVE_PATH,year)
-#         month_dir = os.path.join(year_dir,month)
-
-
-#         if os.path.exists(year_dir):
-#             pass
-#         else:
-#             os.mkdir(year_dir)
-        
-#         if os.path.exists(month_dir):
-#             pass
-#         else:
-#             os.mkdir(month_dir)
-        
-#         cnt = 0 
-#         new_path  = os.path.join(month_dir,new_name + "_(" + str(cnt) + ")" + ext)
-#         while os.path.exists(new_path):
-#             cnt += 1
-#             new_path  = os.path.join(month_dir,new_name + "_(" + str(cnt) + ")" + ext)
-        
-#         shutil.copy2(pic_file_path,new_path)
-
-        
-
-        
-
-#     except: # None 폴더로 모이도록 조정
-#         # pass
-#         ctime = os.path.getctime(pic_file_path)
-#         rtime = datetime.datetime.fromtimestamp(ctime).strftime("%Y_%m_%d %H_%M_%S")
-
-#         year = rtime[0:4]
-#         month = rtime[5:7]
-
-#         year_dir = os.path.join(SAVE_PATH,year)
-#         month_dir = os.path.join(year_dir,month)
-
-#         if os.path.exists(year_dir):
-#             pass
-#         else:
-#             os.mkdir(year_dir)
-        
-#         if os.path.exists(month_dir):
-#             pass
-#         else:
-#             os.mkdir(month_dir)
-
-        
-#         cnt = 0
-#         new_path  = os.path.join(month_dir,rtime + "_(" + str(cnt) + ")" + ext)
-#         while os.path.exists(new_path):
-#             cnt += 1
-#             new_path  = os.path.join(month_dir,rtime + "_(" + str(cnt) + ")" + ext)
-
-#         # none_dir = os.path.join(SAVE_PATH,"None")
-#         # print(meta_data)
-#         # new_path  = os.path.join(none_dir,file_name)
-#         shutil.copy2(pic_file_path,new_path)

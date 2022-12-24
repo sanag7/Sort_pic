@@ -5,12 +5,11 @@ from tqdm import tqdm
 import datetime
 
 
-PIC_PATH = "G:\\Pic_all"  #E:\Pic_all
-# SAVE_PATH = "G:\\Pic_Sort"
-SAVE_PATH = "G:\\Pic_HEIC" #HEIC mode
+PIC_PATH = "G:\\Pic_all"  #E:\Pic_all window
+SAVE_PATH = "G:\\Pic_HEIC" #HEIC mode window
 
-# PIC_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/pic_raw"
-# SAVE_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/save_pic"
+# PIC_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/pic_raw" # Mac
+# SAVE_PATH = "/Users/hwanju/Desktop/Python workspace/PicSort/save_pic" # Mac
 
 pic_ext_list = [".jpg", ".jpeg", ".jpe",".gif", ".png", ".bmp" ]
 # pic_ext_list = [".zip" ] # debug
